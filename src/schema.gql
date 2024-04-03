@@ -1,0 +1,44 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserSetting {
+  setting_id: String!
+  user_id: String!
+  receivedNotifications: Boolean!
+  receiveEmails: Boolean!
+}
+
+type User {
+  user_id: String!
+  full_name: String!
+  user_name: String!
+  email: String!
+  password: String!
+  received: UserSetting
+}
+
+type Query {
+  users: [User!]!
+  findUserById(user_id: String!): User!
+}
+
+type Mutation {
+  createUser(createUserDto: CreateUserDto!): User!
+  updateUser(updateUserDto: UpdateUserDto!, id: String!): User!
+  deleteUser(user_id: String!): User!
+}
+
+input CreateUserDto {
+  full_name: String!
+  user_name: String!
+  email: String!
+  password: String!
+}
+
+input UpdateUserDto {
+  full_name: String
+  user_name: String
+  email: String
+  password: String
+}
