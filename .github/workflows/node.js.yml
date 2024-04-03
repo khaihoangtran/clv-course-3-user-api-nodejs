@@ -5,12 +5,28 @@ name: Node.js CI
 
 on:
   push:
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fe74392 (User APIs using Nestjs & Postgresql & TypeORM & Docker)
     branches: ['master']
   pull_request:
     branches: ['master']
 
 jobs:
   building-testing:
+<<<<<<< HEAD
+=======
+=======
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  building-testing:
+
+>>>>>>> 83606e6 (User APIs using Nestjs & Postgresql & TypeORM & Docker)
+>>>>>>> fe74392 (User APIs using Nestjs & Postgresql & TypeORM & Docker)
     runs-on: ubuntu-latest
 
     strategy:
@@ -19,6 +35,10 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fe74392 (User APIs using Nestjs & Postgresql & TypeORM & Docker)
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -48,3 +68,17 @@ jobs:
           context: .
           push: true
           tags: trankhaihoang/clt-nestt-api:latest
+<<<<<<< HEAD
+=======
+=======
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+    - run: yarn install
+    - run: yarn run build
+    - run: yarn test
+>>>>>>> 83606e6 (User APIs using Nestjs & Postgresql & TypeORM & Docker)
+>>>>>>> fe74392 (User APIs using Nestjs & Postgresql & TypeORM & Docker)

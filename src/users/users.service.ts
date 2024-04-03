@@ -47,10 +47,10 @@ export class UsersService {
       where: { email: createUserDto.email },
     });
 
-    // Hashing password
     if (existedUser !== null)
       throw new ConflictException('User already exists');
 
+    // Hashing password
     const password = await hashPassword(createUserDto.password);
     return this.userRepository.save({
       ...createUserDto,
@@ -60,6 +60,10 @@ export class UsersService {
 
   // Update user service
   async update(user_id: string, updateUserDto: UpdateUserDto): Promise<User> {
+    if (updateUserDto.password) {
+      const password = await hashPassword(updateUserDto.password);
+      updateUserDto = { ...updateUserDto, password };
+    }
     await this.userRepository.update(user_id, updateUserDto);
     return this.userRepository.findOne({ where: { user_id } });
   }

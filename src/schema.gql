@@ -2,20 +2,13 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type UserSetting {
-  setting_id: String!
-  user_id: String!
-  receivedNotifications: Boolean!
-  receiveEmails: Boolean!
-}
-
 type User {
   user_id: String!
   full_name: String!
   user_name: String!
   email: String!
   password: String!
-  received: UserSetting
+  role: String!
 }
 
 type Query {
